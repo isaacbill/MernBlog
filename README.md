@@ -50,8 +50,8 @@ A full-stack **MERN (MongoDB, Express, React, Node.js)** blog application with a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/mern-blog.git
-cd mern-blog
+git clone [https://github.com/yourusername/mern-blog.git](https://github.com/isaacbill/MernBlog.git)
+cd MernBlog
 
 **2. Backend Setup**
 cd server
@@ -75,7 +75,7 @@ npm run dev
 The backend runs on http://localhost:5000.
 
 **3. Frontend Setup**
-cd client/frontend
+cd client\frontend
 npm install
 npm run dev
 
