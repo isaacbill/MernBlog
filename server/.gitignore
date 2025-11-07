@@ -1,0 +1,6 @@
+# .gitignore
+server/.env
+
+node_modules
+
+uploads/
