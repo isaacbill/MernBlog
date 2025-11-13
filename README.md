@@ -127,5 +127,19 @@ This project uses a GitHub Actions workflow to automatically build and deploy th
 - Testing is optional and can be added to the workflow if desired.
 - The workflow ensures that the frontend is always built before deployment, so the live app is always up to date.
 
+# MERN Stack Application
+
+## Deployed Applications
+
+### Frontend
+[View Frontend on Render](https://[your-frontend-url.onrender.com](https://mern-blog-ilio.onrender.com))
+
+### Backend
+[View Backend API on Render](https://[your-backend-url.onrender.com](https://mernblog-3sl8.onrender.com))
+
+
+
+
+
 
 
