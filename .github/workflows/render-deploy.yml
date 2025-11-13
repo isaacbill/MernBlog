@@ -26,34 +26,38 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
+      # Debug: list files to verify paths
+      - name: List repo files
+        run: ls -R
+
       # Cache backend node_modules
       - name: Cache backend dependencies
         uses: actions/cache@v4
         with:
-          path: ./server/node_modules
+          path: server/node_modules
           key: ${{ runner.os }}-server-${{ hashFiles('server/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-server-
 
       - name: Install backend dependencies
-        working-directory: ./server
+        working-directory: server
         run: npm ci
 
       # Cache frontend node_modules
       - name: Cache frontend dependencies
         uses: actions/cache@v4
         with:
-          path: ./client/frontend/node_modules
+          path: client/frontend/node_modules
           key: ${{ runner.os }}-frontend-${{ hashFiles('client/frontend/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-frontend-
 
       - name: Install frontend dependencies
-        working-directory: ./client/frontend
+        working-directory: client/frontend
         run: npm ci
 
       - name: Build frontend for production
-        working-directory: ./client/frontend
+        working-directory: client/frontend
         run: npm run build
 
   deploy:
@@ -64,9 +68,7 @@ jobs:
 
     steps:
       - name: Trigger Render Backend Deployment
-        run: |
-          curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
 
       - name: Trigger Render Frontend Deployment
-        run: |
-          curl -X POST ${{ secrets.RENDER_FRONTEND_HOOK }}
+        run: curl -X POST ${{ secrets.RENDER_FRONTEND_HOOK }}
